@@ -5,5 +5,4 @@ Ce projet a pour but de creer un gps basé sur les adresses enregistrées dans l
 
 
 To Do :
-- Recuperation de la position du user
-- Gestion Gps de la distance user/contact
+- Ameliorer la géolocalisation
