@@ -1,4 +1,6 @@
-﻿using Plugin.Messaging;
+﻿using Android.Content;
+using Android.Provider;
+using Plugin.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -20,6 +22,7 @@ namespace TestXamarin
         //Test en dur(voir en DB)
         public List<Users> Users { get; set; }
 
+        [Obsolete]
         public NameRepertory()
         {
             InitializeComponent();
@@ -36,17 +39,22 @@ namespace TestXamarin
             }
             else
             {
-                foreach (var user in Plugin.ContactService.CrossContactService.Current.GetContactList().ToList())
+                
+               
+
+                foreach (var user in Plugin.ContactService.CrossContactService.Current.GetContactListAsync().Result)
                 {
                     Users.Add(new Users()
                     {
                         Name = user.Name,
                         Telephone = user.Number,
-                        Adress = "Le Buisson 38580 La chapelle du bard"
-                    });
+                        Adress = "65 Rue Louis Becker 69100 Villeurbanne"
+                    }
                     
                 }
+)
                 Users = Users.OrderBy(m => m.Name).ToList();
+               
             }
 
             MyListView.ItemsSource = Users;
@@ -73,5 +81,7 @@ namespace TestXamarin
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
         }
+
+        
     }
 }

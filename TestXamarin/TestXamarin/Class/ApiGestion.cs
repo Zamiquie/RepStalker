@@ -48,16 +48,16 @@ namespace TestXamarin.Class
             return Json;
         }
 
-        public List<OSMReturn> GetPositionByAdress(string ressource,string formatOutp,string address)
+        public DataGouvApiReturn GetPositionByAdress(string address)
         {
-            string uri = ressource + "?format="+formatOutp + "&q="+Uri.EscapeUriString(address);
+            string uri ="?" + "q="+Uri.EscapeUriString(address);
             var request = new RestRequest(uri, Method.GET);
 
             //envoie request
             request.OnBeforeDeserialization = resp => resp.ContentType = "application/json";
             IRestResponse reponse = Client.Execute(request);
             var content = reponse.Content;
-            var json = JsonConvert.DeserializeObject<List<OSMReturn>>(content);
+            var json = JsonConvert.DeserializeObject<DataGouvApiReturn>(content);
 
             return json;
 

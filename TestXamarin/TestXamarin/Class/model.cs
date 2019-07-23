@@ -15,20 +15,50 @@ namespace TestXamarin.Class
     }
 
 
-    public class OSMReturn
+
+  
+    public class DataGouvApiReturn
     {
-        public int place_id { get; set; }
-        public string licence { get; set; }
-        public string osm_type { get; set; }
-        public int osm_id { get; set; }
-        public string[] boundingbox { get; set; }
-        public string lat { get; set; }
-        public string lon { get; set; }
-        public string display_name { get; set; }
-        public string _class { get; set; }
         public string type { get; set; }
-        public float importance { get; set; }
+        public string version { get; set; }
+        public Feature[] features { get; set; }
+        public string attribution { get; set; }
+        public string licence { get; set; }
+        public string query { get; set; }
+        public int limit { get; set; }
     }
+    #region ApiGouv
+    public class Feature
+    {
+        public string type { get; set; }
+        public Geometry geometry { get; set; }
+        public Properties properties { get; set; }
+    }
+
+    public class Geometry
+    {
+        public string type { get; set; }
+        public float[] coordinates { get; set; }
+    }
+
+    public class Properties
+    {
+        public string label { get; set; }
+        public float score { get; set; }
+        public string housenumber { get; set; }
+        public string id { get; set; }
+        public string type { get; set; }
+        public string name { get; set; }
+        public string postcode { get; set; }
+        public string citycode { get; set; }
+        public float x { get; set; }
+        public float y { get; set; }
+        public string city { get; set; }
+        public string context { get; set; }
+        public float importance { get; set; }
+        public string street { get; set; }
+    }
+    #endregion
 
 
 

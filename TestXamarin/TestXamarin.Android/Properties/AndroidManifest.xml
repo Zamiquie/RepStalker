@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.TestXamarin" android:installLocation="preferExternal">
-	<uses-sdk android:targetSdkVersion="27" android:minSdkVersion="23" />
+	<uses-sdk android:targetSdkVersion="23" android:minSdkVersion="22" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 	<uses-permission android:name="android.permission.READ_CONTACTS" />
-	<application android:label="RepStalker.Android" android:icon="@mipmap/icon">
+	<application android:label="RespStalker" android:icon="@drawable/icon_android">
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyD7zKm9HPp6rmLAtG5WkKCRbPFwqqYNKqI" />
 	</application>
 </manifest>

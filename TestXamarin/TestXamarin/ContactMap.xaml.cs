@@ -17,13 +17,13 @@ namespace TestXamarin
         public ContactMap(Users personne)
         {
             InitializeComponent();
-            ApiGestion api = new ApiGestion("https://nominatim.openstreetmap.org/");
-            var posre = api.GetPositionByAdress("search", "json", personne.Adress);
+            ApiGestion api = new ApiGestion("https://api-adresse.data.gouv.fr/search/");
+            var dataGouv = api.GetPositionByAdress(personne.Adress);
 
-            double lat = double.Parse(posre[0].lat,CultureInfo.InvariantCulture);
-            double lon = double.Parse(posre[0].lon, CultureInfo.InvariantCulture);
+            float lat = dataGouv.features[0].geometry.coordinates[0];
+            float lon = dataGouv.features[0].geometry.coordinates[1];
 
-            map.MoveToRegion(new MapSpan(new Position(lat, lon), 0.005, 0.005));
+            map.MoveToRegion(new MapSpan(new Position(Convert.ToDouble(lon), Convert.ToDouble(lat)), 0.005, 0.005));
 
             //Création d'un point d'interet
             Pin pin = new Pin()
